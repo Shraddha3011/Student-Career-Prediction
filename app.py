@@ -1,5 +1,8 @@
 
 # **1. Importing Necessary Libraries** 📚
+import subprocess
+
+subprocess.run(["pip", "install", "seaborn"])
 
 import pandas as pd
 import numpy as np
