@@ -1,20 +1,25 @@
+
 # **1. Importing Necessary Libraries** 📚
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import seaborn as sns
-import pickle 
+import pickle
 import time
 import streamlit as st
 from db import *
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
-pickleFile=open("weights.pkl","rb")
+
+
+pickleFile=open("/content/weights.pkl","rb")
 regressor=pickle.load(pickleFile) # our model
 
 # **2. Loading Dataset**
 
-df = pd.read_csv('./data/mldata.csv')
+df = pd.read_csv('/mldata.csv')
 df.head()
 
 df['workshops'] = df['workshops'].replace(['testing'],'Testing')
@@ -26,7 +31,6 @@ n = df['Suggested Job Role'].unique()
 print(len(n))
 
 print('The shape of our training set: %s professionals and %s features'%(df.shape[0],df.shape[1]))
-
 
 # **5. Feature Engineering**
 
@@ -43,15 +47,15 @@ for i in cols:
 
 print("\n\nList of Categorical features: \n" , df.select_dtypes(include=['object']).columns.tolist())
 
-## (b) Number Encoding for Categorical 
+## (b) Number Encoding for Categorical
 
 mycol = df[["reading and writing skills", "memory capability score"]]
 for i in mycol:
-    print(i)    
+    print(i)
     cleanup_nums = {i: {"poor": 0, "medium": 1, "excellent": 2}}
     df = df.replace(cleanup_nums)
 
-category_cols = df[['certifications', 'workshops', 'Interested subjects', 'interested career area ', 'Type of company want to settle in?', 
+category_cols = df[['certifications', 'workshops', 'Interested subjects', 'interested career area ', 'Type of company want to settle in?',
                     'Interested Type of Books']]
 for i in category_cols:
     df[i] = df[i].astype('category')
@@ -70,11 +74,6 @@ df.head()
 df.sort_values(by=['certifications'])
 
 print("List of Numerical features: \n" , df.select_dtypes(include=np.number).columns.tolist())
-
-
-category_cols = df[['certifications', 'workshops', 'Interested subjects', 'interested career area ', 'Type of company want to settle in?', 'Interested Type of Books']]
-for i in category_cols:
-  print(i)
 
 Certifi = list(df['certifications'].unique())
 print(Certifi)
@@ -140,7 +139,7 @@ for i in clms:
 print(f)
 
 C = dict(zip(Certifi,certi_code))
-  
+
 print(C)
 
 import numpy as np
@@ -148,12 +147,12 @@ array = np.array([1,2,3,4])
 array.reshape(-1,1)
 
 def inputlist(Name,Contact_Number,Email_address,
-      Logical_quotient_rating, coding_skills_rating, hackathons, 
-      public_speaking_points, self_learning_capability, 
+      Logical_quotient_rating, coding_skills_rating, hackathons,
+      public_speaking_points, self_learning_capability,
       Extra_courses_did, Taken_inputs_from_seniors_or_elders,
       worked_in_teams_ever,Introvert, reading_and_writing_skills,
       memory_capability_score, smart_or_hard_work, Management_or_Techinical,
-      Interested_subjects, Interested_Type_of_Books,certifications, workshops, 
+      Interested_subjects, Interested_Type_of_Books,certifications, workshops,
       Type_of_company_want_to_settle_in, interested_career_area):
   #1,1,1,1,'Yes','Yes''Yes''Yes''Yes',"poor","poor","Smart worker", "Management","programming","Series","information security"."testing","BPA","testing"
   Afeed = [Logical_quotient_rating, coding_skills_rating, hackathons, public_speaking_points]
@@ -166,21 +165,21 @@ def inputlist(Name,Contact_Number,Email_address,
     if(i=='Yes'):
       j=2
       feed.append(j)
-       
+
       print("feed 1",i)
-    
+
     elif(i=="No"):
       j=3
       feed.append(j)
-       
+
       print("feed 2",j)
-    
+
     elif(i=='Management'):
       j=1
       k=0
       feed.append(j)
       feed.append(K)
-       
+
       print("feed 10,11",i,j,k)
 
     elif(i=='Technical'):
@@ -188,7 +187,7 @@ def inputlist(Name,Contact_Number,Email_address,
       k=1
       feed.append(j)
       feed.append(K)
-       
+
       print("feed 12,13",i,j,k)
 
     elif(i=='Smart worker'):
@@ -196,7 +195,7 @@ def inputlist(Name,Contact_Number,Email_address,
       k=0
       feed.append(j)
       feed.append(K)
-       
+
       print("feed 14,15",i,j,k)
 
     elif(i=='Hard Worker'):
@@ -205,62 +204,62 @@ def inputlist(Name,Contact_Number,Email_address,
       feed.append(j)
       feed.append(K)
       print("feed 16,17",i,j,k)
-    
+
     else:
       for key in Range_dict:
         if(i==key):
           j = Range_dict[key]
           feed.append(j)
-         
+
           print("feed 3",i,j)
 
       for key in C:
         if(i==key):
           j = C[key]
           feed.append(j)
-          
+
           print("feed 4",i,j)
-      
+
       for key in W:
         if(i==key):
           j = W[key]
           feed.append(j)
-          
+
           print("feed 5",i,j)
-      
+
       for key in ISC:
         if(i==key):
           j = ISC[key]
           feed.append(j)
-          
+
           print("feed 6",i,j)
 
       for key in ICA:
         if(i==key):
           j = ICA[key]
           feed.append(j)
-          
+
           print("feed 7",i,j)
 
       for key in TOCO:
         if(i==key):
           j = TOCO[key]
           feed.append(j)
-          
+
           print("feed 8",i,j)
 
       for key in IB:
         if(i==key):
           j = IB[key]
           feed.append(j)
-          
+
           print("feed 9",i,j)
 
-   
-       
-  t = Afeed+feed    
+
+
+  t = Afeed+feed
   output = regressor.predict([t])
-  
+
   return(output)
 
 def main():
@@ -274,28 +273,28 @@ def main():
       <h1>👨🏻‍💻 Career Path Prediction app 👨🏻‍💻</h1>
     </div>
       """
-  st.markdown(html1,unsafe_allow_html=True) #simple html 
+  st.markdown(html1,unsafe_allow_html=True) #simple html
 
   # Images
 
   col1, col2, col3 = st.columns(3)
 
   with col1:
-      st.image("./assets/Career _Isometric.png")
+      st.image("/content/drive/MyDrive/assets/Career _Isometric.png")
 
   with col2:
-      st.image("./assets/career.png")
+      st.image("/content/drive/MyDrive/assets/career.png")
 
   with col3:
-      st.image("./assets/Career _Outline.png")
+      st.image("/content/drive/MyDrive/assets/Career _Outline.png")
 
   html2="""
     <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
       <h2>Your Friendly Career Advisor<h2>
     </div>
       """
-  st.markdown(html2,unsafe_allow_html=True) #simple html 
- 
+  st.markdown(html2,unsafe_allow_html=True) #simple html
+
   st.sidebar.title("Your Information")
 
   Name = st.sidebar.text_input("Full Name")
@@ -403,28 +402,28 @@ def main():
     ('Testing', 'database security', 'game development', 'data science', 'system designing', 'hacking', 'cloud computing', 'web technologies')
     )
   st.write('You selected: **{}**' .format(workshops))
-  
+
   Type_of_company_want_to_settle_in = st.selectbox(
     'Type of Company You Want to Settle In ',
     ('BPA', 'Cloud Services', 'product development', 'Testing and Maintainance Services', 'SAaS services', 'Web Services', 'Finance', 'Sales and Marketing', 'Product based', 'Service Based')
     )
   st.write('You selected: **{}**' .format(Type_of_company_want_to_settle_in))
-  
+
   interested_career_area = st.selectbox(
     'Interested Career Area',
     ('testing', 'system developer', 'Business process analyst', 'security', 'developer', 'cloud computing')
     )
   st.write('You selected: **{}**' .format(interested_career_area))
-  
+
   result=""
-  
+
   if st.button("Predict"):
-    result=inputlist(Name,Contact_Number,Email_address,Logical_quotient_rating, coding_skills_rating, hackathons, 
-                    public_speaking_points, self_learning_capability,Extra_courses_did, 
+    result=inputlist(Name,Contact_Number,Email_address,Logical_quotient_rating, coding_skills_rating, hackathons,
+                    public_speaking_points, self_learning_capability,Extra_courses_did,
                      Taken_inputs_from_seniors_or_elders,worked_in_teams_ever, Introvert,
-                     reading_and_writing_skills,memory_capability_score, smart_or_hard_work, 
+                     reading_and_writing_skills,memory_capability_score, smart_or_hard_work,
                      Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
-                     certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area) 
+                     certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
 
     # Progress bar
     my_bar = st.progress(0)
@@ -440,7 +439,7 @@ def main():
                "{}".format(result))
 
     # Plot
-    corr = df[['Logical quotient rating', 'hackathons', 
+    corr = df[['Logical quotient rating', 'hackathons',
            'coding skills rating', 'public speaking points']].corr()
     f,axes = plt.subplots(1,1,figsize = (10,10))
     sns.heatmap(corr,square=True,annot = True,linewidth = .4,center = 2,ax = axes)
@@ -456,10 +455,10 @@ def main():
      """)
 
     create_table()
-    add_data(Name,Contact_Number,Email_address,Logical_quotient_rating, coding_skills_rating, hackathons, 
-            public_speaking_points, self_learning_capability,Extra_courses_did, 
+    add_data(Name,Contact_Number,Email_address,Logical_quotient_rating, coding_skills_rating, hackathons,
+            public_speaking_points, self_learning_capability,Extra_courses_did,
             Taken_inputs_from_seniors_or_elders,worked_in_teams_ever, Introvert,
-            reading_and_writing_skills,memory_capability_score, smart_or_hard_work, 
+            reading_and_writing_skills,memory_capability_score, smart_or_hard_work,
             Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
 
@@ -485,3 +484,4 @@ def main():
 
 if __name__=='__main__':
     main()
+
