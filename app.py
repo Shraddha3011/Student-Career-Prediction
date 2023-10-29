@@ -15,12 +15,12 @@ import matplotlib.pyplot as plt
 
 
 
-pickleFile=open("/weights.pkl","rb")
+pickleFile=open("weights.pkl","rb")
 regressor=pickle.load(pickleFile) # our model
 
 # **2. Loading Dataset**
 
-df = pd.read_csv('/mldata.csv')
+df = pd.read_csv('mldata.csv')
 df.head()
 
 df['workshops'] = df['workshops'].replace(['testing'],'Testing')
