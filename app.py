@@ -1,7 +1,6 @@
 
 # **1. Importing Necessary Libraries** 📚
 
-pip install seaborn
 
 import pandas as pd
 import numpy as np
