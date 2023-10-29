@@ -299,8 +299,8 @@ def main():
   st.markdown(html2,unsafe_allow_html=True) #simple html
 
   html3 = """
-      <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
-        <a href="assets/career.html" target="_blank"><h3>Click here to view all career options</h3></a>
+      <div style="text-align:center;">
+        <a href="assets/career.html" target="_blank">Click here to view all career options</a>
       </div>
       """
   st.markdown(html3, unsafe_allow_html=True)
