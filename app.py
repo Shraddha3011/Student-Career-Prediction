@@ -1,8 +1,7 @@
 
 # **1. Importing Necessary Libraries** 📚
-import subprocess
 
-subprocess.run(["pip", "install", "seaborn"])
+pip install seaborn
 
 import pandas as pd
 import numpy as np
@@ -17,7 +16,7 @@ import matplotlib.pyplot as plt
 
 
 
-pickleFile=open("/content/weights.pkl","rb")
+pickleFile=open("/weights.pkl","rb")
 regressor=pickle.load(pickleFile) # our model
 
 # **2. Loading Dataset**
