@@ -474,13 +474,12 @@ def main():
   #       add_data(blog_author,blog_title,blog_article,blog_post_date)
   #       st.success("Post::'{}' Saved".format(blog_title))
 
-  html3="""
+ # Inject custom CSS
+st.markdown(
+    f'<style>{open("styles.css").read()}</style>',
+    unsafe_allow_html=True
+)
 
-    <div style="color:yellow; margin:80px; text-align:center;">
-    </div>
-      """
-
-  st.markdown(html3,unsafe_allow_html=True)
 
 if __name__=='__main__':
     main()
