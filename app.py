@@ -470,6 +470,14 @@ def main():
       """
   st.markdown(html3,unsafe_allow_html=True) #simple html
 
+  # Link to Another HTML Page
+  html_link = """
+    <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
+        <a href="career.html"><h2>See Available Career Options</h2></a>
+    </div>
+    """
+  st.markdown(html_link, unsafe_allow_html=True)
+
 if __name__=='__main__':
     main()
 
