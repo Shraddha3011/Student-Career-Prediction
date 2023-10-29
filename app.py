@@ -300,7 +300,7 @@ def main():
 
   html3 = """
       <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
-        <a href="career.html" target="_blank">Click here to view all career options</a>
+        <a href="assets/career.html" target="_blank">Click here to view all career options</a>
       </div>
       """
   st.markdown(html3, unsafe_allow_html=True)
