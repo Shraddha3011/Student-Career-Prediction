@@ -465,7 +465,7 @@ def main():
     
   html3="""
     <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
-      <a href="career.html"><h2>See Avialble Career options </h2></a>
+      <a href="/career.html"><h2>See Avialble Career options </h2></a>
     </div>
       """
   st.markdown(html3,unsafe_allow_html=True) #simple html
