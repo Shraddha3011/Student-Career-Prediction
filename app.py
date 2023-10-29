@@ -463,21 +463,8 @@ def main():
             Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
     
-  html3="""
-    <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
-      <a href="/c.html">See Avialble Career options</a>
-    </div>
-      """
-  st.markdown(html3,unsafe_allow_html=True) #simple html
-
-  # Link to Another HTML Page
-  html_link = """
-    <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
-        <a href="career.html"><h2>See Available Career Options</h2></a>
-    </div>
-    """
-  st.markdown(html_link, unsafe_allow_html=True)
-
+    # Provide a link to career.html using HTML anchor tag
+    st.markdown('<a href="career.html" target="_blank">Click here to view all career options</a>', unsafe_allow_html=True)
 if __name__=='__main__':
     main()
 
