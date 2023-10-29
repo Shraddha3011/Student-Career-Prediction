@@ -278,6 +278,8 @@ def main():
 
   # Images
 
+
+
   col1, col2, col3 = st.columns(3)
 
   with col1:
@@ -295,6 +297,13 @@ def main():
     </div>
       """
   st.markdown(html2,unsafe_allow_html=True) #simple html
+
+  html3 = """
+      <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
+        <a href="career.html" target="_blank">Click here to view all career options</a>
+      </div>
+      """
+  st.markdown(html3, unsafe_allow_html=True)
 
   st.sidebar.title("Your Information")
 
@@ -462,12 +471,7 @@ def main():
             reading_and_writing_skills,memory_capability_score, smart_or_hard_work,
             Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
-    html3 = """
-      <div style="text-align:center; text-shadow: 3px 1px 2px purple;">
-        <a href="career.html" target="_blank">Click here to view all career options</a>
-      </div>
-      """
-    st.markdown(html3, unsafe_allow_html=True)
+    
 
 if __name__=='__main__':
     main()
