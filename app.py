@@ -477,6 +477,7 @@ def main():
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
 
   if __name__=='__main__':
-      main()
+         
+    main()
 
 
