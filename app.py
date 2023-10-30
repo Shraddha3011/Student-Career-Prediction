@@ -298,14 +298,17 @@ def main():
       """
   st.markdown(html2,unsafe_allow_html=True) #simple html
 
+  import streamlit as st
+
   html3 = """
-    <div style="text-align: center; text-shadow: 3px 1px 2px purple; background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
+    <div style="text-align: center; background-color: #ffc107; padding: 20px; border-radius: 10px;">
         <a href="https://shraddha3011.github.io/Career_Option/" target="_blank" style="text-decoration: none; color: #007bff;">
             <h3 style="margin: 0;">Explore All Career Options</h3>
         </a>
     </div>
-    """
+    """ 
   st.markdown(html3, unsafe_allow_html=True)
+
 
   st.sidebar.title("Your Information")
 
