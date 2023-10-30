@@ -475,8 +475,17 @@ def main():
             reading_and_writing_skills,memory_capability_score, smart_or_hard_work,
             Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
-  
-  
+
 if __name__=='__main__':
-    main()
+    st.markdown(
+        """
+        <style>
+            body {
+                background-color: black;
+                color: white; /* Set text color to white for better visibility on black background */
+            }
+        </style>
+        """, unsafe_allow_html=True)
+main()
+
 
