@@ -466,7 +466,7 @@ def main():
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
   html3 = """
     <div style="text-align:center;">
-      <a href="https://github.com/Shraddha3011/Student-Career-Prediction/blob/main/career.html" target="_blank">Click here to view all career options</a>
+      <a href="file:///C:/Users/Dell/OneDrive/Desktop/Career%20Recommendadtion%20System/career.html" target="_blank">Click here to view all career options</a>
     </div>
     """
   st.markdown(html3, unsafe_allow_html=True)
