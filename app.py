@@ -298,7 +298,6 @@ def main():
       """
   st.markdown(html2,unsafe_allow_html=True) #simple html
 
-  import streamlit as st
 
   html3 = """
     <div style="text-align: center; background-color: #ffc107; padding: 20px; border-radius: 10px;">
