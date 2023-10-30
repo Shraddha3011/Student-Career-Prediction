@@ -466,10 +466,14 @@ def main():
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
   html3 = """
     <div style="text-align:center;">
-      <a href="career.html" target="_blank">Click here to view all career options</a>
+      <a href="https://github.com/Shraddha3011/Student-Career-Prediction/blob/main/career.html" target="_blank">Click here to view all career options</a>
     </div>
     """
   st.markdown(html3, unsafe_allow_html=True)
+
+  link = 'https://github.com/Shraddha3011/Student-Career-Prediction/blob/main/career.html'
+  st.markdown(link, unsafe_allow_html=True)
+  
 if __name__=='__main__':
     main()
 
