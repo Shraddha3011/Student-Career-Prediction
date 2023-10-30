@@ -476,7 +476,7 @@ def main():
             Management_or_Techinical,Interested_subjects, Interested_Type_of_Books,
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
 
-if __name__=='__main__':
-main()
+  if __name__=='__main__':
+      main()
 
 
