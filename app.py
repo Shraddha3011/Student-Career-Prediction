@@ -466,7 +466,7 @@ def main():
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
   html3 = """
     <div style="text-align:center;">
-      <a href="https://shraddha3011.github.io/Career_Options/" target="_blank">Click here to view all career options</a>
+      <a href="https://shraddha3011.github.io/Career_Option/" target="_blank">Click here to view all career options</a>
     </div>
     """
   st.markdown(html3, unsafe_allow_html=True)
