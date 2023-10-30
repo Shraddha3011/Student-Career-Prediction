@@ -301,7 +301,7 @@ def main():
 
   html3 = """
     <div style="text-align: center; background-color: #ffc107; padding: 20px; border-radius: 10px;">
-        <a href="https://shraddha3011.github.io/Career_Option/" target="_blank" style="text-decoration: none; color: #007bff;">
+        <a href=" https://shraddha3011.github.io/Career_Option/" target="_blank" style="text-decoration: none; color: #007bff;">
             <h3 style="margin: 0;">Explore All Career Options</h3>
         </a>
     </div>
@@ -477,15 +477,6 @@ def main():
             certifications, workshops, Type_of_company_want_to_settle_in, interested_career_area)
 
 if __name__=='__main__':
-    st.markdown(
-        """
-        <style>
-            body {
-                background-color: black;
-                color: white; /* Set text color to white for better visibility on black background */
-            }
-        </style>
-        """, unsafe_allow_html=True)
 main()
 
 
